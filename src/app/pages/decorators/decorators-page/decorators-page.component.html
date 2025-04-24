@@ -1,0 +1,44 @@
+<div class="block">
+  <nav>
+    <a
+      [routerLink]="['child']" routerLinkActive="active">Child</a>
+  </nav>
+</div>
+<router-outlet></router-outlet>
+
+<div class="block-decorator">
+  <h2>Ng-container & Ng-template</h2>
+  @for( item of arr; track item; ) {
+    <span>{{item}}</span>
+  }
+
+  <p>First</p>
+  <ng-container *ngTemplateOutlet="second; context : { $implicit : 'Hello world', someText : 'Loren Ipsum' }"></ng-container>
+  <p>Third</p>
+  <ng-template #second let-title let-someText="someText">
+    <p>{{someText}}</p>
+    <p>{{title}}</p>
+    Second false</ng-template>
+
+  <button (click)="isShow=!isShow">Click me!</button>
+
+</div>
+
+<div class="block-decorator">
+  <p #paragraph>Lorem Ipsum</p>
+  <ng-template #paragraphTemplate>
+    <p>Ipsum Lorem</p>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="paragraphTemplate">
+  </ng-container>
+</div>
+
+<div class="block-decorator">
+  <app-child-decorator>
+    <p #paragraph>Content works</p>
+    <p #paragraph>Content works</p>
+    <p #paragraph>Content works</p>
+  </app-child-decorator>
+</div>
+<div class="block"></div>
+

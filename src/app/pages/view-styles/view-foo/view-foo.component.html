@@ -1,0 +1,26 @@
+<style>
+  h1 {
+    color: red;
+  }
+</style>
+<h1>view-foo works!</h1>
+
+<!--  <div (mouseover)="isShow=!isShow"> Hi, move your mouse on me!</div>-->
+  <div [@fadeInOut]="isShow ? 'in' : 'out'" style="font-size:30px">
+<!--  (@fadeInOut.start)="onAnimationStart($event)"-->
+<!--  (@fadeInOut.done)="onAnimationDone($event)"-->
+    I'm animated</div>
+
+
+<button style="font-size: 20px" (click)="isShow =!isShow">Change Show</button>
+
+@for(item of todoArr; track $index) {
+  <app-todo-item [todo]="item"></app-todo-item>
+}
+<button (click)="changeText()">Change text</button>
+
+<button (click)="changeStream()">Change Stream</button>
+
+<app-view-bar class="pink"></app-view-bar>
+
+

@@ -1,0 +1,49 @@
+.login-form {
+  display: grid;
+  grid-template-columns:600px;
+  gap: 20px;
+  border: 2px solid pink;
+  border-radius: 10px;
+  width: 50%;
+  padding : 10px 10px;
+}
+.login-form input {
+  width : 70%;
+  background-color: #f3ba55;
+  margin: 10px 5px;
+}
+.alert {
+  color: red;
+}
+input.ng-touched.ng-invalid {
+  background-color: #f3ba55;
+  border: 2px solid red;
+}
+input.ng-touched.ng-valid {
+  background-color: #f3ba55;
+  border: 2px solid blueviolet;
+}
+.validatorsForm {
+  margin-top: 10px;
+
+  display: grid;
+  grid-template-columns:600px;
+  gap: 20px;
+  border: 2px solid pink;
+  border-radius: 10px;
+  width: 50%;
+  padding : 10px 10px;
+}
+.login-form__array{
+
+  display: grid;
+  grid-template-columns:400px;
+  gap:10px;
+  border: 2px solid yellow;
+  border-radius: 10px;
+  width: 80%;
+  padding : 10px 10px;
+}
+.btn_valid{
+  background-color: pink;
+}

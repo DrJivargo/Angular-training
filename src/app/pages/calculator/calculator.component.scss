@@ -1,0 +1,91 @@
+:host {
+  padding: 10px;
+}
+h1, h2{
+  padding: 10px;
+}
+.calculator {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+
+  border: 2px solid pink;
+  border-radius: 30px;
+  width: fit-content;
+
+  padding: 30px;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+
+    gap: 10px;
+  }
+
+  &__input {
+    font-size: 16px;
+    font-weight: bold;
+
+    outline: none;
+    border: none;
+    border-bottom: 1px solid pink;
+  }
+
+  &__select {
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    width: 50px;
+  }
+
+  &__result {
+    font-size: 21px;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  &__modif {
+    font-size: 16px;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    width: 50px;
+  }
+
+  &__history {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &-title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+
+  &__btn {
+    outline: none;
+    color: #ef20a7;
+    padding: 10px;
+    margin: 5px;
+
+    width: fit-content;
+    height: 70px;
+    font-weight: bold;
+    font-size: 17px;
+    border: 2px solid pink;
+    border-radius: 20px;
+    background-color: transparent;
+
+    &:hover {
+      background-color: rgb(108, 28, 169);
+    }
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,0 +1,46 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100dvh;
+  background: black;
+  color: white;
+  background-image: url(/back.png);
+}
+.block {
+  font-size: 18px;
+  padding : 10px;
+  display : flex;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+a {
+  font-family: "Malgun Gothic";
+  margin: 5px;
+  transition: color 1s;
+  text-decoration: none;
+  color: #335cff;
+}
+nav {
+  transition: 1s ease;
+}
+nav:hover, a:hover{
+  color: pink;
+  transform: scale(1.1) ;
+}
+nav::before{
+  content: "|";
+  padding: 0 7px;
+}
+* {
+  font-family: "Oswald", sans-serif;
+}
+.active {
+  color: orange;
+}

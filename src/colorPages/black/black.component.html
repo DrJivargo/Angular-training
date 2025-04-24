@@ -1,0 +1,113 @@
+<div class="login-form" [formGroup]="myForm" xmlns="http://www.w3.org/1999/html">
+  <div>
+    <label for="login">Login</label>
+    <input type="text" id="login" formControlName="login"/>
+    <small [hidden]="this.myForm.get('login')?.valid || this.myForm.get('login')?.untouched" class="alert">
+      Имя не указано
+    </small>
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email"
+           required pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/>
+    <small [hidden]="this.myForm.get('email')?.valid || this.myForm.get('email')?.untouched" class="alert">
+      Некорректный email
+    </small>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password" />
+    <small [hidden]="this.myForm.get('password')?.valid || this.myForm.get('password')?.untouched" class="alert">
+      Введите пароль
+    </small>
+  </div>
+  <div>
+    <label for="phone">Phone number</label>
+    <input type="phone" id="phone" formControlName="phone"
+           required pattern="[0-9]{11}"/>
+    <small [hidden]="this.myForm.get('phone')?.valid || this.myForm.get('phone')?.untouched" class="alert">
+      Некорректный телефон
+    </small>
+  </div>
+  <button class="btn_valid" (click)="handleValue()" [disabled]="!myForm">Send value</button>
+</div>
+
+<div class="validatorsForm" [formGroup]="validatorsForm">
+  <div>
+    <label for="mail">Mail</label>
+    <input type="text" id="mail" formControlName="mail"/>
+    <small [hidden]="this.validatorsForm.get('mail')?.valid || this.validatorsForm.get('mail')?.untouched" class="alert">
+      Неправильно введены данные
+    </small>
+  </div>
+  <div>
+    <label for="password_one">Введите пароль</label>
+    <input type="password_one" id="password_one" formControlName="password_one" />
+  </div>
+  <div>
+    <label for="password_two">Введите пароль еще раз</label>
+    <input type="password_two" id="password_two" formControlName="password_two" />
+    <small [hidden]="!validatorsForm.errors?.['PasswordDoNotMatch']
+     || this.validatorsForm.get('password_one')?.untouched
+     || this.validatorsForm.get('password_two')?.untouched"
+           class="alert">
+      Пароли не совпадают
+    </small>
+  </div>
+  <button class="btn_valid" (click)="handleValidator()" [disabled]="!validatorsForm">Send value</button>
+</div>
+
+<form class="login-form" [formGroup]="fbForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name"/>
+    <small [hidden]="this.fbForm.get('name')?.valid || this.fbForm.get('name')?.untouched" class="alert">
+      Имя не указано
+    </small>
+  </div>
+
+  <div formArrayName="skills" class="login-form__array">
+    @for (skill of skills.controls; track skill; let i = $index ) {
+
+      <div [formGroupName]="i">
+        <label [for]="i + 'skill'">{{ i+1 }} | Skill</label>
+        <input [id]="i+'skill'" type="text" formControlName="skill" />
+        <small [hidden]="this.fbForm.get('skill')?.valid || this.fbForm.get('skill')?.untouched" class="alert">
+          Способность не указана
+        </small>
+        <br>
+        <label [for]="i + 'exp'">Experience</label>
+        <input [id]="i+'exp'" type="text" formControlName="experience" />
+        <button class="btn_valid" (click)="removeSkill(i)">Delete</button>
+      </div>
+    }
+  </div>
+  <button class="btn_valid" (click)="addSkill()">Add Skill</button>
+  <button class="btn_valid" type="submit" >Submit</button>
+</form>
+
+
+<div class="login-form">
+  <h2>Template-Driven Forms</h2>
+  <pre>{{ templateForm| json}}</pre>
+  <div>
+    <label for="templateLogin">Login</label>
+    <input type="text" id="templateLogin" [(ngModel)]="templateForm.login"/>
+  </div>
+  <div>
+    <label for="templateEmail">Email</label>
+    <input type="email" id="templateEmail" [(ngModel)]="templateForm.email"/>
+  </div>
+  <div>
+    <label for="templatePassword">Password</label>
+    <input type="password" id="templatePassword" [(ngModel)]="templateForm.password" />
+  </div>
+</div>
+
+<div class="login-form" [formGroup]="customForm">
+  <h2>Custom Control</h2>
+
+  <pre>{{customForm.value | json}}</pre>
+
+  <app-gray formControlName="rate" [options]="ratesOptions"></app-gray>
+</div>

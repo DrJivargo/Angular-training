@@ -1,0 +1,21 @@
+.rate {
+  &__text {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  &__wrapper {
+    display: flex;
+    gap: 7px;
+  }
+  &__items{
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+  }
+  &__active {
+    background-color: #ff3131;
+  }
+}

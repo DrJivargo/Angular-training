@@ -1,0 +1,73 @@
+<h1 class="h1">Добро пожаловать на наш калькулятор!</h1>
+<h2 class="h2">Введите числа:</h2>
+<div class="calculator">
+
+  <ng-container *ngFor="let group of calcGroups; let i= index">
+    <div class="calculator__container">
+      <select class="calculator__modif" [(ngModel)]="group.first.modificator">
+        <option
+          [value]="modificator.value"
+          *ngFor="let modificator of calcModifiers | keyvalue"
+        >
+          {{ modificator.value }}
+        </option>
+      </select>
+      <input
+        type="number"
+        class="calculator__input"
+        [(ngModel)]="group.first.value"
+      />
+      <select class="calculator__select" [(ngModel)]="group.operation">
+        <option
+          [value]="operation.value"
+          *ngFor="let operation of calcOperations | keyvalue"
+        >
+          {{ operation.value }}
+        </option>
+      </select>
+      <select class="calculator__modif" [(ngModel)]="group.second.modificator">
+        <option
+          [value]="modificator.value"
+          *ngFor="let modificator of calcModifiers | keyvalue"
+        >
+          {{ modificator.value}}
+        </option>
+      </select>
+      <input
+        type="number"
+        class="calculator__input"
+        [(ngModel)]="group.second.value"
+      />
+
+      <button (click)="removeGroup(i)"
+              *ngIf = "i != 0"
+      >
+        del</button>
+    </div>
+    <select class="calculator__modif"
+            [(ngModel)]="group.operation[i ]"
+            *ngIf="operationsBetweenGroups.length > i">
+      <option
+        [value]="operation.value"
+        *ngFor="let operation of calcOperations | keyvalue"
+      >
+        {{ operation.value }}
+      </option>
+    </select>
+  </ng-container>
+
+  <span class="calculator__result">{{result ? result : 'Нажмите рассчитать!'}}</span>
+
+  <div class="calculator__history">
+    <span class="calculator__history-title">История операций: </span>
+    <span *ngFor="let obj of history; let i = index">{{i + 1}} {{ obj }}</span>
+  </div>
+
+  <div>
+    <button class="calculator__btn" (click)="calcGroup()">Рассчитать</button>
+    <button class="calculator__btn"(click)="addGroup()">Добавить группу</button>
+  </div>
+
+
+  <span class="calculator__history"></span>
+</div>

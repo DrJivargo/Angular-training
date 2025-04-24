@@ -1,0 +1,8 @@
+<div class="block">
+  <nav>
+    <a
+      [routerLink]="['yellow']" routerLinkActive="active">Yellow</a>
+  </nav>
+</div>
+<app-yellow [(value)]="parentValue" ></app-yellow>
+<router-outlet></router-outlet>

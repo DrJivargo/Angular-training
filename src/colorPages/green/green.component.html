@@ -1,1 +1,8 @@
-<p>green works!</p>
+<p>Hello world!</p>
+<div>
+  @for (profile of profiles; track profile.id) {
+    <app-users
+      [user]="profile"
+    ></app-users>
+  }
+</div>

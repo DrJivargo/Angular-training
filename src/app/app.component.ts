@@ -11,6 +11,7 @@ import {UserService} from './services/user.service';
 export class AppComponent {
   title = 'pages';
 
+
   private userService = inject(UserService);
 
   // constructor(private userService: UserService) { //здесь мы объявили наш сервис с компонентом
